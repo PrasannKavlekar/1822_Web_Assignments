@@ -1,0 +1,100 @@
+
+<html>
+<head>
+<style>
+.wrapperDiv {
+    position: inherit;
+}
+
+.Table {
+	width: 100%;
+}
+
+.Row {
+	float:left;
+	width: 100%;
+}
+
+.Heading {
+	font-weight:bold;
+}
+
+.Cell {
+	float:left;
+	border:1px solid;
+	border-width: thin;
+	text-align:center;
+	padding: 5px 0px 3.5px 0px;
+	width:200;
+}
+
+.Cell1 {
+	float:left;
+	border:1px solid;
+	border-width: thin;
+	border-bottom: none;
+	text-align:center;
+	padding: 9px 0px 0px 0px;
+	width:200;
+}
+
+ .Cell.rowspanned {
+    border-top:none;
+	padding: 9px 0px 0px 0px;
+  }
+
+  .clr Row{
+	float:inherit;
+  	clear: left;
+  }
+
+</style>
+</head>
+
+<body>
+<div class="wrapperDiv">
+<div class="Table">
+<div class="Heading">
+
+<div class="Row">
+<div class="Cell1">Roll No.</div>
+<div class="Cell">ISA</div>
+<div class="Cell">SEM</div>
+<div class="Cell">Total</div>
+<div class="Cell1">Class</div>
+</div>
+
+<div class="Row">
+<div class="rowspanned Cell"><div class="clr">&nbsp;</div></div>
+<div class="Cell">60</div>
+<div class="Cell">40</div>
+<div class="Cell">100</div>
+<div class="rowspanned Cell">&nbsp;</div>
+</div>
+
+<div class="clr">
+<div class="Row">
+<div class="Cell"><div class="clr">1801</div></div>
+<div class="Cell">40</div>
+<div class="Cell">30</div>
+<div class="Cell">70</div>
+<div class="Cell">First</div>
+</div>
+</div>
+
+<div class="clr">
+<div class="Row">
+<div class="Cell">1802</div>
+<div class="Cell">50</div>
+<div class="Cell">35</div>
+<div class="Cell">85</div>
+<div class="Cell">Distinction</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+</body></html>
