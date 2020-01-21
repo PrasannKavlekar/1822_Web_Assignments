@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	* {
+		box-sizing: border-box;
+		background-color: white;
+	}
+
+	.column {
+		float: left;
+		width: 48%;
+		height: auto;
+		padding: 5px;
+		margin: 1px;
+		border: 2px;
+	}
+
+	@media screen and (max-width: 600px) {
+		.column {
+			width: 100%;
+		}
+	}
+
+	#firstbox {
+		border-style: dashed;
+		border-color: black;
+	}
+
+	#secondbox {
+		border-style: dotted;
+		border-color: blue;
+	}
+</style>
+
+<h2>Lorem Ipsum</h2>
+<div class="column" id="firstbox">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		Tortor vitae purus faucibus ornare suspendisse. Auctor urna nunc id cursus metus aliquam eleifend mi. Morbi enim nunc faucibus a pellentesque sit.
+		Vitae sapien pellentesque habitant morbi tristique senectus et netus et. Nunc pulvinar sapien et ligula ullamcorper.
+	</p>
+</div>
+<div class="column" id="secondbox">
+	<p>
+		Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.
+		Facilisis magna etiam tempor orci eu lobortis elementum nibh tellus. Sollicitudin aliquam ultrices sagittis orci a scelerisque purus.
+		Vitae ultricies leo integer malesuada nunc. At volutpat diam ut venenatis. Est placerat in egestas erat imperdiet. Sit amet purus gravida quis.
+	</p>
+</div>
+</body>
+
+</html>

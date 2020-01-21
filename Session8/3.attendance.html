@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		background-image: url("pattern.jpg");
+		background-size: 10px;
+		background-repeat: repeat;
+		color: black;
+	}
+
+	.column {
+		font-size: 28px;
+		width: 50%;
+		background-color: white;
+	}
+
+	.sub-btn {
+		float: center;
+		background-color: #0033cc;
+		color: #ffffff;
+		border: none;
+		padding: 10px;
+		border-radius: 3px;
+	}
+
+	.text {
+		text-align: center;
+	}
+
+	.ul {
+		text-decoration: underline;
+		color: #0033cc;
+	}
+
+	.img1 {
+		height: 15px;
+		width: 15px;
+	}
+
+	@media only screen and (max-width: 600px) {
+
+		.column {
+			float: none;
+			width: 100%;
+			font-size: 25px;
+		}
+
+		.img1 {
+			height: 30px;
+			width: 30px;
+		}
+	}
+
+	#nos1 {
+		float: left;
+	}
+
+	#nos2 {
+		float: right;
+	}
+</style>
+
+<body>
+	<h2 class="text ul">ATTENDENCE</h2>
+	<h3 class="text ul">MCA</h3>
+	<div class="column text" id="nos1">
+		<input type="checkbox"><img src="female.png" class="img1"> 1801<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1802<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1803<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1804<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1805<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1806<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1807<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1808<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1809<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1810<br>
+	</div>
+
+	<div class="column text" id="nos2">
+		<input type="checkbox"><img src="male.png" class="img1"> 1811<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1812<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1813<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1814<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1815<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1816<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1817<br>
+		<input type="checkbox"><img src="male.png" class="img1"> 1818<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1819<br>
+		<input type="checkbox"><img src="female.png" class="img1"> 1820<br>
+	</div>
+	<div class="btn text">
+		<button class="sub-btn">Cancel</button>
+		<input type="submit" class="sub-btn">
+	</div>
+</body>
+
+</html>
