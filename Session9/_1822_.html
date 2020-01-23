@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"  >
+  <head>
+      <title>css test</title>
+      <style>
+
+		#container {
+
+			}
+
+		#transback {
+
+		}
+
+		#content {
+      border: 2px solid black;
+      display: inline-block;
+      background-color: white;
+			margin: 0% 10% 10% 10%;
+		  background-image: url("image/Goa Beach.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		#header {
+			background-color:cyan;
+			height:110px;
+		}
+
+
+
+		#leftbar {
+			width: 30%;
+			background-color:#ff6600;
+			float:left;
+			height:270px;
+		}
+
+		#rightbar {
+			width: 70%;
+			display:inline-block;
+			height:270px;
+      background-color: #fff;
+      opacity: 0.94;
+		}
+
+    #footer {
+      background-color:yellow;
+    }
+
+		#gulogo {
+			display:block;
+			margin-left:auto;
+			margin-right:auto;
+			}
+
+		#guname {
+			text-align:center;
+			font-family:Algerian;
+			color: darkblue;
+			font-size: 30px;
+			font-weight: bold;
+			text-shadow: 250px 20px DarkSlateGray;
+      filter: opacity(50%);
+			}
+
+		#guinfo {
+			margin-left:30px;
+			margin-right:30px;
+			font-family:Georgia;
+			}
+
+
+		#copyright {
+			text-align:center;
+
+		}
+
+		.blk {
+			margin-top:-50px;
+			width: 70px;
+			height: 70px;
+			border: 2px groove red;
+			display:inline-block;
+			color:blue;
+			padding: 10px;
+
+		}
+
+		.slk {
+      padding-top: 100px;
+      display: inline-block;
+      margin-top:-33px;
+		}
+
+    ol {
+      float:left;
+      margin-top:-1px;
+      margin-left:-15px;
+    }
+
+    ul {
+      margin-left: 60px;
+      float:left;
+      margin-top:-5px;
+    }
+		ol li{
+			text-align:right;
+      padding-left: 70px;
+		}
+
+    ul li:nth-child(1) {
+      list-style-type: disc;
+      padding-left:70px;
+    }
+
+    ul li:nth-child(2) {
+      list-style-type: circle;
+      color:blue;
+    }
+
+		input[type=button] {
+			background-color:red;
+		}
+
+		table,td {
+			margin-left: 50%;
+      overflow:visible;
+      table-layout: fixed;
+      width: 103px;
+		}
+
+
+		#guimg {
+      margin: -85px 0px 0px 300px;
+      position: absolute;
+      clip: rect(85px auto auto auto);
+      margin-left: 514px;
+		}
+
+    #copyright {
+      margin-top: -10%;
+    }
+		#year {
+			vertical-align: super;
+			font-size: smaller;
+			font-weight: bold;
+			font-style: italic;
+		}
+      </style>
+  </head>
+  <body>
+    <div id="container" >
+
+	    <div id="transback" ></div>
+		<div id="content"  >
+
+			     <img id="gulogo" src="image/gu_logo.png" />
+				 <div id="guname">Goa University</div>
+
+				 <div id="guinfo" ><span style="font-family: Algerian; font-size:50px">G</span>oa University </span>
+					  was established in 1985 by an Act of the State
+				      Legislature, incorporating the then existing Centre for Post
+					  Graduate Instruction and Research of the University of Bombay,
+					  with 13 teaching departments and 17 affiliated colleges. From a
+					  modest beginning in 1985, the University has, over the past twenty-five
+					  years, established itself and expanded across 12 faculties, with 24 post
+					  graduate departments and three Centres on its campus, with 48
+					  affiliating professional and non-professional colleges.
+				 </div>
+				 <div id="bottom">
+		             <div id="header">
+					    <ol>
+						     <li> First</li>
+							 <li> Second</li>
+						</ol>
+						<ul>
+						     <li> Third</li>
+							 <li> Fourth</li>
+						</ul>
+
+			         </div>
+                     <div id="leftbar" >
+					     <div>This is line 1 </div>
+						 <div style="opacity:0; " >This is line 2 </div>
+			             <div style="text-decoration:underline">This is line 3 </div>
+						 <div style="display:none" ><img id="gulogo" src="image/gu_logo.png" />This is line 4 </div>
+						 <div>This is line 5 </div>
+			         </div>
+			         <div id="rightbar" >
+			           <span class="slk" >We start here</span><div class="blk">There is something in this block</div>
+					       <span class="slk" >But not so clear</span><div class="blk" >Why it gets positioned this way</div>
+					       <span class="slk">So we continue</span>
+					       <img id="guimg" src="image/gu_logo.png" />
+			         </div>
+			         <div id="footer">
+					     <input type="button" value="Click me"/>
+					     <table border="1">
+					               <tr><td style="border-style:none;">AAA</td><td>BBBBBBBBBBBBBBB</td></tr>
+							           <tr><td>CCCCCCCCCCCC</td><td style="border:2px solid red;text-align:right;">DDD</td></tr>
+			             </table>
+                </div>
+                 </div>
+    </div>
+	<div id="copyright"> &copy; DCST,Goa University<span id="year">1985</span> </div>
+  </body>
+</html>
