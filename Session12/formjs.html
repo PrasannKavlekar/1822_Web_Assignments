@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Session 12 : Form using JS </title>
+  <style>
+    #id {
+      display: table;
+    }
+
+    #mainbox1 {
+      float: left;
+      width: 48%;
+      height: 100%;
+      border: 2px dashed #61C961;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .nocenter {
+      text-align: left;
+    }
+
+    #mainbox2 {
+      float: right;
+      width: 48%;
+      height: 100%;
+      border: 2px dashed #C961C9;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="mainbox1">
+      <form name="myForm" onsubmit="return validate()">
+        <div class="nocenter">
+          <p>Roll No: <input type="text" name="rollno" id="rollno" placeholder="eg. 18XX"></p>
+          <p>Name: <input type="text" name="name" id="name" placeholder="eg. John Doe"></p>
+          <p>Gender:
+            <input type="radio" name="gender" id="malerb" value="Male" checked> Male
+            <input type="radio" name="gender" id="femalerb" value="Female"> Female
+            <input type="radio" name="gender" id="otherrb" value="Other"> Other</p>
+          <p>Semester:
+            <select id="semesterbox">
+              <option disabled selected value> -- Select an option -- </option>
+              <option value="Semester I">I</option>
+              <option value="Semester II">II</option>
+              <option value="Semester III">III</option>
+              <option value="Semester IV">IV</option>
+            </select></p>
+
+          <p>
+            <fieldset>
+              <legend>Electives:</legend>
+              <input type="checkbox" name="checkbox[]" id="ehacking" value=" Ethical Hacking"> Ethical Hacking</br>
+              <input type="checkbox" name="checkbox[]" id="iot" value=" IoT"> IoT</br>
+              <input type="checkbox" name="checkbox[]" id="music" value=" Music"> Music</br>
+              <input type="checkbox" name="checkbox[]" id="fmaking" value=" Film Making"> Film Making</br>
+            </fieldset>
+          </p>
+        </div>
+        <button type="submit"> Submit </button>
+      </form>
+    </div>
+    <div id="mainbox2">
+      <table id="table" border="1" width="100%" height="100%">
+        <tr>
+          <th> Roll No</th>
+          <th> Name</th>
+          <th> Gender</th>
+          <th> Semester</th>
+          <th> Electives</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function validate() {
+      var crollno = document.getElementById("rollno").value;
+      var cname = document.getElementById("name").value;
+
+      if (crollno == "" || cname == "") {
+        alert("No blank fields allowed! Please fill in all details.");
+        return false;
+      } else if (/\D/.test(crollno)) {
+        alert("Please only enter numeric characters for Roll No!");
+        return false;
+      } else {
+        addRow();
+        return false;
+      }
+    }
+
+    function addRow() {
+      // Radio button input
+      var malerbv = document.getElementById("malerb");
+      var femalerbv = document.getElementById("femalerb");
+      var otherrbv = document.getElementById("otherrb");
+      if (malerbv.checked == true) {
+        var gender = "Male";
+      }
+      if (femalerbv.checked == true) {
+        var gender = "Female";
+      }
+      if (otherrbv.checked == true) {
+        var gender = "Other";
+      }
+
+      // Semester drop down list
+      var sem = document.getElementById("semesterbox").selectedIndex;
+      if (sem == 1) {
+        var sem = "Semester I";
+      }
+      if (sem == 2) {
+        var sem = "Semester II";
+      }
+      if (sem == 3) {
+        var sem = "Semester III";
+      }
+      if (sem == 4) {
+        var sem = "Semester IV";
+      }
+
+      // Electives checkbox
+      var checkboxes = document.getElementsByName('checkbox[]');
+      var vals = "";
+      for (var i = 0, n = checkboxes.length; i < n; i++) {
+        if (checkboxes[i].checked) {
+          vals += "," + checkboxes[i].value;
+        }
+      }
+      if (vals) vals = vals.substring(1);
+
+      // Table entries
+      var table = document.getElementById("table");
+      var row = table.insertRow(-1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      cell1.innerHTML = document.getElementById("rollno").value;
+      cell2.innerHTML = document.getElementById("name").value;
+      cell3.innerHTML = gender;
+      cell4.innerHTML = sem;
+      cell5.innerHTML = vals;
+    }
+  </script>
+</body>
+
+</html>

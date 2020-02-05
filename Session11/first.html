@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#question {
+  width: 340px;
+  height: 100px;
+  background-color: #ff9999;
+  margin: 0 auto;
+}
+
+#answer {
+  width: 340px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 0 auto;
+  visibility: hidden;
+}
+
+p{
+  text-align: center; 
+}
+</style>
+</head>
+<body>
+<div id="main">
+<p>Click the question to toggle between hiding and showing the answer:</p>
+
+<div id="question" onclick="visible('answer')">Q. Why did the octopus beat the shark in a fight? </div>
+
+<div id="answer">
+ Ans: Because it was well armed.
+</div>
+</div>
+<script>
+function visible(answer) {
+  var x = document.getElementById(answer);
+  if (x.style.visibility === 'hidden') {
+    x.style.visibility = 'visible';
+  } else {
+    x.style.visibility = 'hidden';
+  }
+}
+</script>
+
+</body>
+</html>

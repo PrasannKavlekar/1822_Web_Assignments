@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		#myImg {
+			width: 500px;
+			height: 500px;
+		}
+
+		.img {
+			margin: auto;
+			width: 50%;
+			padding: 10px;
+		}
+	</style>
+</head>
+
+<body onresize="myFunction()">
+	<div class="img">
+		<img id="myImg" src="img/1.png"> </img>
+	</div>
+	<script>
+		function myFunction() {
+			var w = window.outerWidth;
+			if (w >= 800) {
+				document.getElementById("myImg").src = "img/1.png";
+				document.getElementById("myImg").width = "500px";
+				document.getElementById("myImg").height = "500px";
+			}
+			if (w <= 800) {
+				document.getElementById("myImg").src = "img/2.png";
+				document.getElementById("myImg").width = "150px";
+				document.getElementById("myImg").height = "150px";
+			}
+			if (w <= 399) {
+				document.getElementById("myImg").src = "img/3.png";
+				document.getElementById("myImg").width = "50px";
+				document.getElementById("myImg").height = "50px";
+			}
+		}
+	</script>
+
+</body>
+
+</html>
