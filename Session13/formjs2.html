@@ -1,0 +1,196 @@
+<html>
+	<head>
+		<title>Semester Form</title>
+
+
+		<style>
+
+		.left {
+			width:45.5%;
+			float:left;
+			height: 90%;
+			border: 2px groove black;
+			position: relative;
+			padding: 2%;
+		}
+
+		#right {
+			width:45.5%;
+			float:right;
+			border: 2px groove black;
+			min-height: 90%;
+			padding: 2%;
+		}
+
+
+		.table {
+			display:table;
+			width: 100%;
+		}
+
+		.row {
+			display: table-row;
+			font-weight: bold;
+		}
+
+		.cell {
+			display: table-cell;
+			border: 1px solid black;
+			border-left: none;
+			border-right: none;
+			padding: 5px;
+		}
+
+		input[type=submit] {
+			text-align: center;
+			background-color: #42C9D5;
+			border: none;
+			color: white;
+			padding: 10px 32px;
+			text-decoration: none;
+			margin: 4px 270px;
+			cursor: pointer;
+
+		}
+		</style>
+		<script>
+			document.getElementById("myRadio").disabled = true;
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="left">
+
+			<form name="semform" onsubmit="return validateForm()">
+					Roll No:  <input type="text" name="rollnumber" id="rollno">
+					<br><br>
+					Name:&nbsp;&nbsp;&nbsp; <input type="text" name="name" id="name">
+					<br><br>
+					Gender: <input type="radio" name="gender" id="mrb" value="male" checked> Male
+							<input type="radio" name="gender" id="frb" value="female"> Female
+							<input type="radio" name="gender" id="orb" value="other"> Other <br><br>
+					Semester:  <select name="sem" id="semester">
+								<option value="" disabled selected>Choose</option>
+								<option value="1">I</option>
+								<option value="2">II</option>
+								<option value="3">III</option>
+								<option value="4">IV</option>
+								<option value="4">V</option>
+								<option value="4">VI</option>
+							  </select><br><br>
+					<fieldset>
+						<legend>Electives</legend>
+						 <input type="checkbox" name="el" value="Ethical Hacking">Ethical Hacking<br>
+						 <input type="checkbox" name="el" value="IoT"> Internet of Things<br>
+						 <input type="checkbox" name="el" value="Music"> Music<br><br>
+					</fieldset><br><br>
+
+					<input type="submit" value="Submit">
+			</form>
+
+
+		</div>
+
+		<div id="right">
+				<div class="table">
+					<div class="row">
+					<div class="cell">Roll No.</div>
+					<div class="cell">Name &emsp;&emsp;</div>
+					<div class="cell">Gender</div>
+					<div class="cell">Semester</div>
+					<div class="cell">Electives&emsp;&emsp;&emsp;&emsp;</div>
+					</div>
+				</div>
+
+				<p id="newRow"></p>
+
+		</div>
+
+
+		<script>
+
+			function validateForm() {
+				var r = document.forms["semform"]["rollnumber"].value;
+				var n = document.forms["semform"]["name"].value;
+				var s = document.forms["semform"]["sem"].value;
+				var seq = /^[A-Za-z]+$/;
+
+			if (r == "" || r == null || n == "" || n == null || s == "" || s == null) {
+					alert("Field must not be empty!");
+					return false;
+				}
+
+				else if (/\D/.test(r)) {
+					alert("Roll No. should be numeric only!");
+					return false;
+				}
+
+				else if(!n.match(seq)) {
+					alert("Enter alphabets for name!");
+					return false;
+				}
+
+				else if ( ( semform.el[0].checked == false ) && ( semform.el[1].checked == false ) && ( semform.el[2].checked == false )){
+					alert ( "Please choose at least one elective!" );
+					return false;
+				}
+
+				else {
+					 addRow();
+					 return false;
+				}
+			}
+
+			function addRow() {
+				var mr = document.getElementById("mrb");
+				var fr = document.getElementById("frb");
+				var or = document.getElementById("orb");
+				if (mr.checked == true) {
+					var gender = "Male";
+				}
+				if (fr.checked == true) {
+					var gender = "Female";
+				}
+				if (or.checked == true) {
+					var gender = "Other";
+				}
+
+				var sem = document.getElementById("semester").selectedIndex;
+				if (sem == 1) {
+					var sem = "I";
+				}
+				if (sem == 2) {
+					var sem = "II";
+				}
+				if (sem == 3) {
+					var sem = "III";
+				}
+				if (sem == 4) {
+					var sem = "IV";
+				}
+
+				var checkboxes = document.getElementsByName('el');
+	      var vals = "";
+	      for (var i = 0, n = checkboxes.length; i < n; i++) {
+	        if (checkboxes[i].checked) {
+	          vals += "," + checkboxes[i].value;
+	        }
+	      }
+	      if (vals) vals = vals.substring(1);
+
+				var s = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0';
+				var ex = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0';
+				var para = document.createElement("p");
+				var node = document.createTextNode(document.getElementById("rollno").value  +s + document.getElementById("name").value + s+ gender +s+ sem + ex + vals );
+				para.appendChild(node);
+				var element1 = document.getElementById("right");
+				var child = document.getElementById("newRow");
+				element1.insertBefore(para,child);
+			}
+
+		</script>
+	</body>
+
+</html>
