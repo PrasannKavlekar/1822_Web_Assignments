@@ -1,0 +1,140 @@
+<html>
+
+<head>
+  <title>Search using JS</title>
+  <style>
+    #container {
+      width: 50%;
+      margin: 0 auto;
+      height: 650px;
+      border: 2px solid red;
+      padding-left: 30px;
+      padding-right: 30px;
+      overflow: auto;
+    }
+
+    #searchData {
+      border: 2px solid green;
+      padding: 20px 20px 20px 20px;
+      font-size: 22px;
+      margin-top: -20px;
+    }
+
+    #searchDiv {
+      border: 2px solid slateblue;
+      padding: 20px 20px 20px 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    #footer {
+      border: 2px solid maroon;
+      padding: 20px 20px 20px 20px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #under {
+      text-decoration: underline;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+
+  <script>
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+        var textDiv = document.getElementById("searchData").innerHTML;
+        textDiv = textDiv.toString();
+        document.getElementById("Submit").onclick = function() {
+          searchWord(textDiv);
+        };
+      },
+      false
+    );
+
+    function searchWord(textDiv) {
+      var searchText = document.getElementById("searchbox").value;
+
+      if (document.getElementById("text").checked == true) {
+        textReplace(searchText, textDiv);
+      }
+
+      if (document.getElementById("regex").checked == true) {
+        regexReplace(searchText, textDiv);
+      }
+      // var new_text = textDiv.replace(pattern,"<span class='highlight'>" + searchText + "</span>");
+      // document.getElementById("searchData").innerHTML = new_text;
+    }
+
+    function textReplace(searchText, textDiv) {
+      if (document.getElementById("case").checked && (!document.getElementById("wholeword").checked)) {
+        var pattern = new RegExp("(" + searchText + ")", "gi");
+      }
+      if (document.getElementById("wholeword").checked && (!document.getElementById("case").checked)) {
+        var pattern = new RegExp( "\\b" + searchText + "\\b", "g");
+      }
+      if ((!document.getElementById("case").checked) && (!document.getElementById("wholeword").checked)) {
+        var pattern = new RegExp("(" + searchText + ")", "g");
+      }
+      if (document.getElementById("case").checked && document.getElementById("wholeword").checked) {
+        var pattern = new RegExp("\\b" + searchText + "\\b", "gi");
+      }
+
+      var new_text = textDiv.replace(pattern,"<span class='highlight'>" + searchText + "</span>");
+      document.getElementById("searchData").innerHTML = new_text;
+    }
+
+    function regexReplace(searchText, textDiv) {
+      var pattern = textDiv.match(searchText);
+      var new_text = textDiv.replace(pattern,"<span class='highlight'>" + searchText + "</span>");
+      document.getElementById("searchData").innerHTML = new_text;
+    }
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <br /><br />
+    <div id="searchData">
+        Naruto is a Japanese manga series written and illustrated by Masashi
+        Kishimoto. It tells the story of Naruto Uzumaki, an adolescent ninja
+        who constantly searches for recognition and dreams to become the
+        Hokage, the ninja in his village who is acknowledged as the leader and
+        strongest of them all. The series is based on a one-shot manga by
+        Kishimoto that was published in the August 1997 issue of Akamaru Jump.
+    </div>
+    <br />
+    <div id="searchDiv">
+      <form id="form">
+        Search: <input type="text" id="searchbox" /><br /><br />
+        <input type="radio" name="search" id="text" value="text" checked />
+        <label>Search by Text</label> &emsp;&emsp;&emsp;&emsp;
+        <input type="radio" name="search" id="regex" value="regex" />
+        <label>Search by Regular Expression</label><br /><br />
+
+        <input type="checkbox" id="case" name="case" value="case" />
+        <label>Case Insensitive</label><br />
+        <input type="checkbox" id="wholeword" name="wholeword" value="wholeword" />
+        <label> Match Whole World</label><br /><br />
+        <input id="Submit" type="button" value="Submit" >
+        </form>
+      </div>
+      <br />
+      <div id=" footer">
+        <span class="bold" id="under">Sample Regular Expression:</span><span class="bold"> /pattern/flag(s)</span>
+        <p>
+          /the/g<br />
+          /an/gi
+        </p>
+    </div>
+    <br />
+  </div>
+</body>
+
+</html>
