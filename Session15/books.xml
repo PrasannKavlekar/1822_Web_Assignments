@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="rule.xsl"?>
+<books>
+   <book>
+           <title>The Hunger Games</title>
+           <pages>374</pages>
+           <writer>Suzanne Collins</writer>
+           <year>2008</year>
+   </book>
+   <book>
+           <title>Harry Potter and the Order of Phoenix</title>
+           <pages>870</pages>
+           <writer>J.K Rowling</writer>
+           <year>2002</year>
+   </book>
+   <book>
+           <title>To Kill a Mockingbird</title>
+           <pages>324</pages>
+           <writer>Harper Lee</writer>
+           <year>2001</year>
+    </book>
+   <book>
+           <title>Pride and Prejudice</title>
+           <pages>279</pages>
+           <writer>Jane Austen</writer>
+           <year>1999</year>
+   </book>
+</books>
